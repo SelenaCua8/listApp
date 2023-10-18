@@ -8,17 +8,22 @@ import { HeaderComponent } from './components/header/header.component';
 import { ItemComponent } from './components/item/item.component';
 import { MainComponent } from './components/main/main.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+import { FilterPipe } from './pipes/filter.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     HeaderComponent,
     ItemComponent,
-    MainComponent
+    MainComponent,
+    FilterPipe,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

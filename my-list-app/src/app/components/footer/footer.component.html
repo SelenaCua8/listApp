@@ -1,3 +1,3 @@
-<div class="c-footer">
-    <input type="text" placeholder="Enter task">
+<div class="c-footer" [class.valid-input]="txtInput.invalid">
+    <input type="text" [formControl]="txtInput" (keydown.enter)="save()" placeholder="Enter task">
   </div>

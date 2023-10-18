@@ -1,10 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ItemService } from 'src/app/services/item.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+
+  constructor (private itemServices: ItemService) {}
+
+  ngOnInit(): void {
+      
+  }
+
+  filter(code: string){
+    this.itemServices.filter(code);
+  }
+
+
 
 }
