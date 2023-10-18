@@ -42,4 +42,22 @@ export class ItemService {
   filter(code: string){
     this.subFilter.next(code);
   }
+
+  changeState(id: string, state: boolean){
+    let itemsResult = this.itemSub.map( item =>{
+      if(item.id === id) item.state = state;
+      return item;
+    });
+    this.sub.next(itemsResult);
+    localStorage.setItem("item", JSON.stringify(itemsResult));
+    this.itemSub = itemsResult;
+  }
+
+  delete(itemId: string){
+    let itemsResult = this.itemSub.
+              filter(items => items.id != itemId);
+    this.sub.next(itemsResult);
+    localStorage.setItem("item", JSON.stringify(itemsResult));
+    this.itemSub = itemsResult;
+  }
 }
